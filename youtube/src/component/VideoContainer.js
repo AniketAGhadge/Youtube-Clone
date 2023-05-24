@@ -1,6 +1,6 @@
 import React from 'react'
 
-function VideoContainer() {
+const VideoContainer = () => {
   return (
     <div>VideoContainer</div>
   )
