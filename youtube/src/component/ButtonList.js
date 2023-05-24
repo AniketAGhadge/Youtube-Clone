@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ButtonList() {
+const ButtonList = () => {
   return (
     <div>ButtonList</div>
   )

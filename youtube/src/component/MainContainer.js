@@ -2,9 +2,9 @@ import React from 'react'
 import ButtonList from './ButtonList'
 import VideoContainer from './VideoContainer'
 
-function MainContainer() {
+const MainContainer = () => {
   return (
-    <div>
+    <div className='col-span-11'>
         <ButtonList/>
         <VideoContainer/>
     </div>
