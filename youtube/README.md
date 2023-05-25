@@ -1,73 +1,5 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+" First step Create Raw UI Design " :- (On Pen and Paper then same on UI)  ------
 
 
 Create react app using command npx create-react-app projectName
@@ -75,4 +7,71 @@ Create react app using command npx create-react-app projectName
             npx used when we are running that command only one time through out the project
             npm stand for Node Package Module
             npm used when we are going to use that command more than one time
+
+Install Tailwindcss npm i -D tailwindcss
+            -D is for development
+            (a)     Create tailwind config by npx tailwindcss init
+            (b)     Add config in module 
+                        ["./src/**/*.js"] - If we have multiple type of file where we are useing tailwind then we can use ["./src/**/*.{js,html}"]
+            (c)     clear all part from App.css and add
+                        @tailwindcss base
+                        @tailwindcss component
+                        @tailwindcss utilities
+
+Create component folder inside src 
+
+Create Header.js inside component folder
+            -   Add all images required for Header
+
+Create Sidebar.js inside component folder
+            -   Add all images required for Sidebar
+
+Create ButtonList.js and VideoContainer.js inside component folder
+
+Create MainContainer.js inside component folder
+            -   Add <ButtonList/> and <VideoContainer/>
+
+
+Create Body.js inside component folder
+            -   Add <Sidebar/> and <Maincontainer/> (Use flex so sidebar and maincontainer will get to next to each other)
+
+Add <Header/> and <Body/> in App.js
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+"Creating Redux Store" so we can call action for Hamburger icon collaps and open :-
+
+"/When we click it dispatch action which call reducer function which create slice in REdux store/"
+
+Install Reduxjs Toolkit
+        npm i @reduxjs/toolkit    --- used to install redux libery
+        npm i react-redux         --- used to install libery to understand the redux to react
+
+Create utils folder inside src folder
+        - Create store.js in utils
+                - In store we will configure store by using configureStore({})
+        - Create slice in utile name as navBarSlice.js
+                - we will create slice using createSlice which will take name, initialState and reducers.
+                - in reducers we will create actions
+                - export action as export {actionName} = fileName.actions
+                - export reducer as export default fileName.reducer
+        - In store.js we will add reducer in configureStore with its name and fileName as name : fileName
+
+Done with creating REdux Store.
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+Creating action so that on click Hamburger the sidebar visable and hide :-
+
+In Header.js
+        - We will create onCLick function on Hambergurger icon
+        - Onclick we will dispatch a action using useDispatch() which will call the action created in reducers function in navBarSlice
+        - That action function takes state as paramater To know the state we will subscribe the store by using useSelector in sidebar.js which will point to exact action from store e.g store.app.isMenuOpen then we will use early binding or ternary operator to check the state.
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
 
