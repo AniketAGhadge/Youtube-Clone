@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   const isMeanuOpen = useSelector(store=> store.app.isMeanuOpen);
@@ -10,7 +11,7 @@ const Sidebar = () => {
     <div className='p-2 m-2 col-span-1'>
       <div className='flex p-1'>
         <img className='h-8' alt='Home' src='https://logowik.com/content/uploads/images/795_home.jpg'/>
-        <span>Home</span>
+        <Link to= '/'>Home</Link>
       </div>
       <div className='flex p-1'>
         <img className='h-8' alt='Shorts' src='https://logowik.com/content/uploads/images/youtube-shorts-black3609.jpg'/>
