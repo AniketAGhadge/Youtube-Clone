@@ -1,27 +1,34 @@
-import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { closeMenu } from '../utils/navBarSlice';
-import { useSearchParams } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { closeMenu } from "../utils/navBarSlice";
+import { useSearchParams } from "react-router-dom";
+import CommentsContainer from "./CommentsContainer";
 
 const WatchPage = () => {
+  const [searchParams] = useSearchParams();
 
-    const [searchParams] = useSearchParams();
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch();
-
-    useEffect( () => {
-        dispatch(closeMenu());
-    })
+  useEffect(() => {
+    dispatch(closeMenu());
+  });
 
   return (
-    <div className='p-10'>
-        <iframe width="950" height="500" src={"https://www.youtube.com/embed/"+searchParams.get('v')} 
-            title="YouTube video player" frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowfullscreen>
-        </iframe>
+    <div className="flex flex-col">
+      <div className="p-10">
+        <iframe
+          width="950"
+          height="500"
+          src={"https://www.youtube.com/embed/" + searchParams.get("v")}
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <CommentsContainer />
     </div>
-  )
-}
+  );
+};
 
-export default WatchPage
+export default WatchPage;
